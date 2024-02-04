@@ -13,8 +13,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-child: Center(child: Text('\n* * * * * * * * * *\n* * * * * * * * *\n* * * * * * * *\n alBasti*\n* * * * * * * *\n* * * * * * * * *\n* * * * * * * * * *',style: TextStyle(fontSize: 30,fontWeight: FontWeight.w900),)),
-        ),
+
+          ),
       ),
     );
   }
