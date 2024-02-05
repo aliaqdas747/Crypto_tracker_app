@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
+    return MultiProvider(
+      providers: [
       ChangeNotifierProvider<MarketProvider>(
         create: (context)=> MarketProvider(),)
     ],

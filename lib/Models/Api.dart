@@ -7,7 +7,7 @@ class API {
   static Future<List<dynamic>> getMarket() async {
     // Define the API endpoint URL using the Coingecko API
     Uri requestPath = Uri.parse(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=pkr&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en");
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=pkr&order=market_cap_desc&per_page=50&page=1&sparkline=false&locale=en');
 
     // Send a GET request to the specified URL
     var response = await http.get(requestPath);
