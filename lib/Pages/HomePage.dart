@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Text(
                   'Welcome Back',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
                   ),
@@ -90,7 +90,9 @@ class _HomePageState extends State<HomePage> {
 
                           });
                         } else {
-                          return Text('Data not found');
+                          return Center(
+                            child: Image.asset('assets/images/inter.png',height: 300,width: 300,),
+                          );
                         }
                       }
                     },

@@ -1,14 +1,12 @@
-import 'package:crypto_tracker/Models/CryptoCurrency.dart';
 import 'package:crypto_tracker/Pages/HomePage.dart';
 import 'package:crypto_tracker/Providers/marketProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:crypto_tracker/Providers/Theme_provider.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,19 +15,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-      ChangeNotifierProvider<MarketProvider>(
-        create: (context)=> MarketProvider(),)
-    ],
-    child:  MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-
+        ChangeNotifierProvider<MarketProvider>(
+          create: (context) => MarketProvider(),
         ),
-        home:  HomePage()
-    ),
+        ChangeNotifierProvider<ThemeProvider>(
+          create: (context) => ThemeProvider(),
+        ),
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+          home: HomePage()),
     );
-
-
   }
 }

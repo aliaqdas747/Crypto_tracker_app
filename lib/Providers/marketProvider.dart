@@ -43,7 +43,7 @@ class MarketProvider with ChangeNotifier {
 
     Timer(const Duration(seconds: 3),(){
       fetchData();
-      print('data updated');
+      print('data updated**********************************');
     });
   }
 }
