@@ -19,15 +19,25 @@ class MyApp extends StatelessWidget {
           create: (context) => MarketProvider(),
         ),
         ChangeNotifierProvider<ThemeProvider>(
-          create: (context) => ThemeProvider(),
+          create: (context) => ThemeProvider("dark"),
         ),
       ],
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false,
+      child:Consumer<ThemeProvider>(
+    builder:(context,themeProvider, child){
+      return   MaterialApp(
+         debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData.light(),
+          themeMode: themeProvider.themeMode,
+          theme:ThemeData.light(),
           darkTheme: ThemeData.dark(),
-          home: HomePage()),
+          home: HomePage());
+
+
+    },
+    )
+
+
+
     );
   }
 }

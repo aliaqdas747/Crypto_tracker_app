@@ -1,4 +1,5 @@
 import 'package:crypto_tracker/Models/CryptoCurrency.dart';
+import 'package:crypto_tracker/Providers/Theme_provider.dart';
 import 'package:crypto_tracker/Providers/marketProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider =    Provider.of<ThemeProvider>(context, listen:false);
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -28,12 +31,23 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Text(
-                  'Crypto Today',
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Crypto Today',
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    IconButton(onPressed: (){
+                    themeProvider.toggeleTheme();
+                    },
+                        padding: EdgeInsets.all(0),
+                      icon:(themeProvider.themeMode == ThemeMode.light) ? Icon(Icons.dark_mode)
+                    : Icon(Icons.light_mode),
+                    ) ],
                 ),
                 Expanded(
                   child: Consumer<MarketProvider>(
